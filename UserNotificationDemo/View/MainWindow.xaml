@@ -1,0 +1,11 @@
+﻿<Window x:Class="WPFNotification.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Notification generator" Height="200" Width="300">
+    <StackPanel>
+      <Button Width="200" Height="30" Margin="4" Command="{Binding Notification1}">Add notification</Button>
+      <Button Width="200" Height="30" Margin="4" Command="{Binding Notification2}">Add notification</Button>
+      <Button Width="200" Height="30" Margin="4" Command="{Binding Notification3}">Add notification</Button>
+      <Button Width="200" Height="30" Margin="4" Command="{Binding Notification4}">Add notification</Button>
+    </StackPanel>
+</Window>
