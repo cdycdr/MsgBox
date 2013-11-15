@@ -130,7 +130,7 @@
     <comment>Copy</comment>
   </data>
   <data name="Copy_Button_ToolTip" xml:space="preserve">
-    <value>क्लिपबोर्ड करने के लिए जानकारी की नकल</value>
+    <value>जानकारी की क्लिपबोर्ड पर नकल करें</value>
     <comment>Copy information to clipboard</comment>
   </data>
   <data name="COPY_KEY_TIP" xml:space="preserve">
@@ -178,7 +178,7 @@
     <comment>_No</comment>
   </data>
   <data name="Notificaation_Usage_Description" xml:space="preserve">
-    <value>या तो बटन पर क्लिक करके इस संवाद को बंद करें: {0}.</value>
+    <value>इस डायलॉग को बंद करने के लिए किसी भी बटन पर क्लिक करें: {0}.</value>
     <comment>Close this dialog by clicking on either button: {0}.</comment>
   </data>
   <data name="Notificaation_Usage_Title" xml:space="preserve">
