@@ -47,6 +47,8 @@
     <Setter Property="UseLayoutRounding" Value="True" />
     <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
     <Setter Property="xc:ModernDialogCloser.DialogCloser" Value="{Binding DialogCloseResult}" />
+    <Setter Property="Focusable" Value="True" />
+    <Setter Property="KeyboardNavigation.IsTabStop" Value="True" />
 
     <Setter Property="Template">
       <Setter.Value>
@@ -123,7 +125,10 @@
                       </Grid.RowDefinitions>
 
                       <!-- content -->
-                      <ContentControl Grid.Row="0" Margin="3" Content="{TemplateBinding Content}" x:Name="MessageContent" />
+                      <ContentControl Grid.Row="0" Margin="3" Content="{TemplateBinding Content}" x:Name="MessageContent"
+                                      FocusVisualStyle="{x:Null}"
+                                      Focusable="False"
+                                      SnapsToDevicePixels="True" />
 
                       <!-- buttons
                     <ItemsControl Grid.Row="1" ItemsSource="{TemplateBinding Buttons}" HorizontalAlignment="Right">
@@ -138,8 +143,8 @@
                   </Grid>
                 </Border>
                 <Border BorderBrush="{DynamicResource WindowBorderActive}"
-                      BorderThickness="1"
-                      Visibility="{Binding IsActive, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        BorderThickness="1"
+                        Visibility="{Binding IsActive, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Converter={StaticResource BooleanToVisibilityConverter}}" />
               </Grid>
             </AdornerDecorator>
           </Border>

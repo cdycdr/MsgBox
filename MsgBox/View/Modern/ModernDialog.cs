@@ -63,7 +63,8 @@
           ModernDialog.mMessageBox.Owner = Application.Current.MainWindow;
       }
 
-      ModernDialog.mMessageBox.Content = new MsgBoxView() { DataContext = viewModel };
+      ModernDialog.mMessageBox.Content = new MsgBoxView();
+      ModernDialog.mMessageBox.DataContext = viewModel;
 
       // Add key binding to close dialog via Escape key
       InputGesture g = new KeyGesture(Key.Escape, ModifierKeys.None);

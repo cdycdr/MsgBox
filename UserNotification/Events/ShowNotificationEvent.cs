@@ -24,7 +24,7 @@
     /// <summary>
     ///    Initializes a new instance of the ShowNotificationEvent class.
     /// </summary>
-    /// <param name="imageUrl"></param>
+    /// <param name="imageIcon"></param>
     /// <param name="message"></param>
     /// <param name="title"></param>
     public ShowNotificationEvent(string title,
