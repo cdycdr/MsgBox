@@ -142,7 +142,7 @@
     <comment>More details</comment>
   </data>
   <data name="No_Button_Label" xml:space="preserve">
-    <value>_Non</value>
+    <value>_No</value>
     <comment>_No</comment>
   </data>
   <data name="OK_Button_Label" xml:space="preserve">
@@ -174,7 +174,7 @@
     <comment>_Close</comment>
   </data>
   <data name="No" xml:space="preserve">
-    <value>Non</value>
+    <value>No</value>
     <comment>_No</comment>
   </data>
   <data name="Notificaation_Usage_Description" xml:space="preserve">
