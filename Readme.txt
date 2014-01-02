@@ -16,6 +16,13 @@ See http://www.msgbox.codeplex.com for more details.
 
 Change History:
 
+- Bugfix Italian typo Non should No
+  http://www.codeproject.com/Tips/682283/WPF-MessageBox-Service?msg=4707211#xx4707211xx
+
+- Small bugfix in Dialog - View focus handling
+
+- Correction in 2 Hindi translation strings
+
 Fixed Issues:
 
 - MsgBoxDemo Project
