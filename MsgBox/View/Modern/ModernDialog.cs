@@ -57,11 +57,24 @@
       // Construct the message box view and add the viewmodel to it
       ModernDialog.mMessageBox = new ModernDialog() { DataContext = viewModel };
 
+
       if (owner == null)
       {
         if (Application.Current != null)
-          ModernDialog.mMessageBox.Owner = Application.Current.MainWindow;
+        {
+          if (ModernDialog.mMessageBox != Application.Current.MainWindow)
+            ModernDialog.mMessageBox.Owner = Application.Current.MainWindow;
+        }
       }
+      else
+      {
+        if (ModernDialog.mMessageBox != owner)
+          ModernDialog.mMessageBox.Owner = owner;
+      }
+
+      // Last resourt check to mack sire window opens without main window (eg.: in start-up sequence)
+      if (ModernDialog.mMessageBox.Owner == ModernDialog.mMessageBox)
+        ModernDialog.mMessageBox.Owner = null;
 
       ModernDialog.mMessageBox.Content = new MsgBoxView();
       ModernDialog.mMessageBox.DataContext = viewModel;

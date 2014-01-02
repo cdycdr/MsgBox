@@ -28,7 +28,7 @@
 
       Window w = MsgBoxDialog.GetOwnerWindow();
 
-      if (w != null)
+      if (w != null && w != this)
         this.Owner = w;
     }
     #endregion constructors
@@ -52,8 +52,20 @@
       if (owner == null)
       {
         if (Application.Current != null)
-          MsgBoxDialog.mMessageBox.Owner = Application.Current.MainWindow;
+        {
+          if (MsgBoxDialog.mMessageBox != Application.Current.MainWindow)
+            MsgBoxDialog.mMessageBox.Owner = Application.Current.MainWindow;
+        }
       }
+      else
+      {
+        if(MsgBoxDialog.mMessageBox != owner)
+          MsgBoxDialog.mMessageBox.Owner = owner;
+      }
+
+      // Last resourt check to mack sire window opens without main window (eg.: in start-up sequence)
+      if (MsgBoxDialog.mMessageBox.Owner == MsgBoxDialog.mMessageBox)
+        MsgBoxDialog.mMessageBox.Owner = null;
 
       //MsgBoxDialog.mMessageBox.Content = new MsgBoxView() { DataContext = viewModel };
       MsgBoxDialog.mMessageBox.DataContext = viewModel;
