@@ -8,7 +8,7 @@
   using System.Windows.Media.Imaging;
   using Commands;
   using UserNotification.Events;
-  using UserNotification.View;
+  using UserNotification.Interfaces;
 
   /***
    * 

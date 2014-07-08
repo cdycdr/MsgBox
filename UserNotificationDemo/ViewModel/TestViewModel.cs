@@ -4,13 +4,14 @@
   using System.Windows.Input;
   using System.Windows.Media.Imaging;
   using UserNotification.Events;
+  using UserNotification.Interfaces;
   using WPFNotifications.Commands;
 
   /// <summary>
   /// Implements a viewmodel that drives the logic for binding commands
   /// to the view and invoking events that trigger the next notification.
   /// </summary>
-  public class TestViewModel : Base.ViewModelBase
+  public class TestViewModel : Base.ViewModelBase, INotifyableViewModel
   {
     #region fields
     private RelayCommand mNotification1 = null;

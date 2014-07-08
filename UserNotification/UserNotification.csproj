@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Events\ShowNotificationEvent.cs" />
+    <Compile Include="Interfaces\INotifyableViewModel.cs" />
     <Compile Include="Local\Strings.de-DE.Designer.cs">
       <DependentUpon>Strings.de-DE.resx</DependentUpon>
       <AutoGen>True</AutoGen>
