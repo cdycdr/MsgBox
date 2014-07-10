@@ -32,3 +32,6 @@ Fixed Issues:
   Cannot set Owner property to itself
   Added code to ensure that owner of MsgBox dialog can never be the window itself
   (which causes an exception to be thrown and the message box not to be displayed)
+
+- Notification
+  Added SimpleNotification view to support scenarios with tool tip like view
