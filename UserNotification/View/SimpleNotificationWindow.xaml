@@ -19,9 +19,10 @@
         Background="Transparent"
 
         Topmost="{Binding IsTopmost}"
-        UseLayoutRounding="True"
-
+        MinWidth="350"
+        MinHeight="75"
         SizeToContent="WidthAndHeight"
+        ResizeMode="CanResize"
         >
   <Window.Resources>
     <Storyboard x:Key="CollapseStoryboard">
@@ -32,7 +33,10 @@
   <ContentControl x:Name="NotificationsControl" FocusVisualStyle="{x:Null}">
     <ContentControl.ContentTemplate>
       <DataTemplate DataType="Model:Notification">
-        <Grid x:Name="NotificationWindow" Tag="{Binding Path=Id, NotifyOnTargetUpdated=True}" Background="Transparent" SizeChanged="NotificationWindowSizeChanged">
+        <Grid x:Name="NotificationWindow"
+              Tag="{Binding Path=Id, NotifyOnTargetUpdated=True}"
+              Background="Transparent"
+              SizeChanged="NotificationWindowSizeChanged">
           <Border Name="border"
                   Background="{DynamicResource NotificationWindowBackground}"
                   BorderThickness="1"
@@ -44,27 +48,29 @@
             <Grid Margin="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
               <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="*"    />
+                <RowDefinition Height="Auto"    />
               </Grid.RowDefinitions>
-              <Grid.ColumnDefinitions>
+              <!-- Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
-              </Grid.ColumnDefinitions>
+              </ -->
 
               <!-- Image Grid.RowSpan="2" Source="{Binding Path=ImageIcon}" Margin="3,3,12,3" Width="32"
                      VerticalAlignment="Top" HorizontalAlignment="Left" / -->
 
-              <TextBlock Grid.Column="1"
+              <TextBlock Grid.Row="0"
                          Text="{Binding Path=Title}"
+                         ToolTip="{Binding Path=Title}"
                          TextOptions.TextRenderingMode="ClearType"
                          TextOptions.TextFormattingMode="Display"
-                         TextWrapping="Wrap"
-                         TextTrimming="CharacterEllipsis" 
+                         TextTrimming="CharacterEllipsis"
+                         TextWrapping="NoWrap"
                          Foreground="{DynamicResource NotificationWindowForeground}" 
                          FontFamily="Arial"
                          FontSize="14"
                          FontWeight="Bold"
                          VerticalAlignment="Top"
+                         HorizontalAlignment="Stretch"
                          Margin="2,4,4,2" />
 
               <!-- view:NotificationCloseButton x:Name="CloseButton" Grid.Column="1"
@@ -72,12 +78,17 @@
                                             Width="16" Height="16"
                                             HorizontalAlignment="Right" Margin="0,0,3,3" / -->
 
-              <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=Message}"
+              <TextBlock Grid.Row="1"
+                         Text="{Binding Path=Message}"
+                         ToolTip="{Binding Path=Message}"
                          TextOptions.TextRenderingMode="ClearType"
                          TextOptions.TextFormattingMode="Display"                          
-                         TextWrapping="Wrap" TextTrimming="CharacterEllipsis"
+                         TextTrimming="CharacterEllipsis"
+                         TextWrapping="WrapWithOverflow"
                          Foreground="{DynamicResource NotificationWindowForeground}" 
-                         FontFamily="Arial" VerticalAlignment="Top"
+                         FontFamily="Arial"
+                         VerticalAlignment="Stretch"
+                         HorizontalAlignment="Stretch"
                          Margin="2,2,4,4"/>
             </Grid>
           </Border>
