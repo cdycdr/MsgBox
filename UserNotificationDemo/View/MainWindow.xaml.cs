@@ -1,9 +1,9 @@
-﻿namespace WPFNotification.View
+﻿namespace UserNotificationDemo.View
 {
   using System.Windows;
   using UserNotification.View;
   using UserNotification.ViewModel;
-  using WPFNotifications.ViewModel;
+  using UserNotificationDemo.ViewModels;
 
   /// <summary>
   /// Interaction logic for MainWindow.xaml

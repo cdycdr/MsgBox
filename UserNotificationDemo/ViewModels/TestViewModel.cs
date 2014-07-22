@@ -1,11 +1,11 @@
-﻿namespace WPFNotifications.ViewModel
+namespace UserNotificationDemo.ViewModels
 {
   using System.Windows;
   using System.Windows.Input;
   using System.Windows.Media.Imaging;
   using UserNotification.Events;
   using UserNotification.Interfaces;
-  using WPFNotifications.Commands;
+  using UserNotificationDemo.Commands;
 
   /// <summary>
   /// Implements a viewmodel that drives the logic for binding commands
@@ -18,6 +18,8 @@
     private RelayCommand mNotification2 = null;
     private RelayCommand mNotification3 = null;
     private RelayCommand mNotification4 = null;
+
+    private TestNotifyableContentControlViewModel mNotifayableContent;
     #endregion fields
 
     #region events
@@ -28,6 +30,17 @@
     public event ShowNotificationEventHandler ShowNotificationMessage;
     #endregion events
 
+    #region constructors
+    /// <summary>
+    /// Class constructor
+    /// </summary>
+    public TestViewModel()
+    {
+      this.NotifyableContent = new TestNotifyableContentControlViewModel();
+    }
+    #endregion constructors
+
+    #region properties
     #region commands
     /// <summary>
     /// Expose a command binding to show a sample notification message #1.
@@ -85,6 +98,28 @@
       }
     }
     #endregion commands
+
+    /// <summary>
+    /// Expose a viewmodel that can be used to test the
+    /// <seealso cref="UserNotification.View.NotifyableContentControl"/>.
+    /// </summary>
+    public TestNotifyableContentControlViewModel NotifyableContent
+    {
+      get
+      {
+        return this.mNotifayableContent;
+      }
+
+      set
+      {
+        if (this.mNotifayableContent != value)
+        {
+          this.mNotifayableContent = value;
+          this.RaisePropertyChanged(() => this.NotifyableContent);
+        }
+      }
+    }
+    #endregion properties
 
     #region methods
     private void Notification1_Executed()

@@ -4,7 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Windows;
 
-namespace WPFNotification
+namespace UserNotificationDemo
 {
     /// <summary>
     /// Interaction logic for App.xaml

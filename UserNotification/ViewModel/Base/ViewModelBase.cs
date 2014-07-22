@@ -1,4 +1,4 @@
-﻿namespace WPFNotifications.ViewModel.Base
+﻿namespace UserNotification.ViewModel.Base
 {
   using System;
   using System.ComponentModel;

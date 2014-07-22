@@ -10,7 +10,7 @@
   /// 
   /// Based on: http://www.codeproject.com/Articles/499241/Growl-Alike-WPF-Notifications
   /// </summary>
-  public class NotificationViewModel : INotifyPropertyChanged
+  public class NotificationViewModel : Base.ViewModelBase
   {
     #region fiels
     private int id;
@@ -55,13 +55,6 @@
     }
     #endregion constructor
 
-    #region events
-    /// <summary>
-    /// Standard event of INotifyPropertyChanged interface.
-    /// </summary>
-    public event PropertyChangedEventHandler PropertyChanged;
-    #endregion events
-
     #region properties
     /// <summary>
     /// Get/set notification id.
@@ -76,8 +69,7 @@
           return;
 
         id = value;
-        
-        this.OnPropertyChanged("Id");
+        this.RaisePropertyChanged(() => this.Id);
       }
     }
 
@@ -94,7 +86,7 @@
           return;
 
         this.mTitle = value;
-        this.OnPropertyChanged("Title");
+        this.RaisePropertyChanged(() => this.Title);
       }
     }
 
@@ -111,7 +103,7 @@
           return;
 
         this.mMessage = value;
-        this.OnPropertyChanged("Message");
+        this.RaisePropertyChanged(() => this.Message);
       }
     }
 
@@ -128,7 +120,7 @@
           return;
 
         this.mImageIcon = value;
-        this.OnPropertyChanged("ImageUrl");
+        this.RaisePropertyChanged(() => this.ImageIcon);
       }
     }
 
@@ -148,7 +140,7 @@
         if (this.mIsTopmost != value)
         {
           this.mIsTopmost = value;
-          this.OnPropertyChanged("IsTopmost");
+          this.RaisePropertyChanged(() => this.IsTopmost);
         }
       }
     }
@@ -168,7 +160,7 @@
         if (this.mHeight != value)
         {
           this.mHeight = value;
-          this.OnPropertyChanged("Height");
+          this.RaisePropertyChanged(() => this.ViewHeight);
         }
       }
     }
@@ -188,22 +180,10 @@
         if (this.mWidth != value)
         {
           this.mWidth = value;
-          this.OnPropertyChanged("Width");
+          this.RaisePropertyChanged(() => this.ViewWidth);
         }
       }
     }
     #endregion properties
-
-    #region methods
-    /// <summary>
-    /// Standard method for INotifyPropertyChanged interface.
-    /// </summary>
-    /// <param name="propertyName"></param>
-    protected virtual void OnPropertyChanged(string propertyName)
-    {
-      var handler = PropertyChanged;
-      if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
-    }
-    #endregion methods
   }
 }
