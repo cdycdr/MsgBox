@@ -1,4 +1,4 @@
-﻿namespace MsgBox.Commands
+﻿namespace MsgBoxSamples.Commands
 {
   using System;
   using System.Diagnostics;

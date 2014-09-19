@@ -57,7 +57,6 @@
       return Msg.GetService<IMsgBoxService>().Show(messageBoxText);    
     }
 
-
     /// <summary>
     /// Displays a message box that has a message and that returns a result.
     /// </summary>

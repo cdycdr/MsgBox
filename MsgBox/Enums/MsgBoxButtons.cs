@@ -35,6 +35,36 @@
     /// <summary>
     /// Display Close GUI element
     /// </summary>
-    Close
+    Close,
+
+		/// <summary>
+		/// Display Yes, No, and Copy GUI elements
+		/// </summary>
+		YesNoCopy,
+
+		/// <summary>
+		/// Display Yes, No, Cancel, and Copy GUI elements
+		/// </summary>
+		YesNoCancelCopy,
+
+		/// <summary>
+		/// Display OK, Cancel, and Copy GUI elements
+		/// </summary>
+		OKCancelCopy,
+
+		/// <summary>
+		/// Display OK, Close, and Copy GUI elements
+		/// </summary>
+		OKCloseCopy,
+
+		/// <summary>
+		/// Display OK, Copy GUI element
+		/// </summary>
+		OKCopy,
+
+		/// <summary>
+		/// Display Close and Copy GUI element
+		/// </summary>
+		CloseCopy
   }
 }

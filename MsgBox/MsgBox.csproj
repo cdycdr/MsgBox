@@ -75,6 +75,7 @@
     <Compile Include="Converter\ImageEnumToVisibilityConverter.cs" />
     <Compile Include="Converter\ImageEnumToImageConverter.cs" />
     <Compile Include="Enums\MsgBoxStyle.cs" />
+    <Compile Include="IMessage.cs" />
     <Compile Include="IMessageBoxService.cs" />
     <Compile Include="Internal\MessageBoxService.cs" />
     <Compile Include="Behaviour\DialogCloser.cs" />
@@ -115,6 +116,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Message.cs" />
     <Compile Include="Msg.cs" />
     <Compile Include="Local\Strings.Designer.cs">
       <AutoGen>True</AutoGen>

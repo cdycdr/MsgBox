@@ -10,7 +10,7 @@
   using System.Windows.Controls;
   using System.Windows.Input;
   using MsgBox;
-  using MsgBox.Commands;
+	using MsgBoxSamples.Commands;
 
   #region Helper Test Classes
   /// <summary>
@@ -106,7 +106,7 @@
     private MessageResultCollection mDefaultMessageButtonSelected;
     private ObservableCollection<MessageResultCollection> mDefaultMessageButtons = null;
 
-    private RelayCommand mTestMsgBoxParameters = null;
+		private RelayCommand<object> mTestMsgBoxParameters = null;
     private RelayCommand<object> mTestSamplMsgBox = null;
 
     private string mMessageText, mCaptionText;
@@ -490,7 +490,7 @@
       get
       {
         if (this.mTestMsgBoxParameters == null)
-          this.mTestMsgBoxParameters = new RelayCommand(() => this.TestMsgBoxParameters_Executed());
+					this.mTestMsgBoxParameters = new RelayCommand<object>((p) => this.TestMsgBoxParameters_Executed());
 
         return this.mTestMsgBoxParameters;
       }
