@@ -144,6 +144,10 @@
       <Project>{2F8EF004-1E7A-429D-863B-5A062A90705A}</Project>
       <Name>MsgBox</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ServiceLocator\ServiceLocator.csproj">
+      <Project>{1d2b2142-67d7-48ea-91f9-5e77e29b5ab9}</Project>
+      <Name>ServiceLocator</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

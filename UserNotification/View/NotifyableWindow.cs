@@ -33,9 +33,8 @@
     /// Class Constructor
     /// </summary>
     public NotifyableWindow()
+            : base()
     {
-      //////this.InitializeComponent();
-
       this.mAttachedNotificationEvent = false;
       this.notificationWindow = new NotificationWindow();
       this.DataContextChanged += MsgBoxView_DataContextChanged;

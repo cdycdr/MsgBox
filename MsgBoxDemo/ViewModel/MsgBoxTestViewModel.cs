@@ -11,6 +11,7 @@
   using System.Windows.Input;
   using MsgBox;
 	using MsgBoxSamples.Commands;
+	using ServiceLocator;
 
   #region Helper Test Classes
   /// <summary>
@@ -460,7 +461,9 @@
           this.mMessageBoxStyleSelected = value;
 
           // set the style of the message box display in back-end system.
-          Msg.Style = value.EnumKey;
+					var msg = ServiceContainer.Instance.GetService<IMessageBoxService>();
+
+          msg.Style = value.EnumKey;
 
           this.RaisePropertyChanged(() => this.MessageBoxStyleSelected);
         }
@@ -526,7 +529,9 @@
       Thread.CurrentThread.CurrentCulture = new CultureInfo(this.ButtonLanguageSelected.BCP47);
       Thread.CurrentThread.CurrentUICulture = new CultureInfo(this.ButtonLanguageSelected.BCP47);
 
-      MsgBoxResult result = Msg.Show(this.MessageText, this.CaptionText,
+			var msg = ServiceContainer.Instance.GetService<IMessageBoxService>();
+
+      MsgBoxResult result = msg.Show(this.MessageText, this.CaptionText,
                                      this.mMessageButtonSelected.EnumKey,
                                      image,
                                      this.DefaultMessageButtonSelected.EnumKey,
@@ -562,21 +567,22 @@
     private void ShowTestSampleMsgBox(string sampleID, Window sampleWindow)
     {
       MsgBoxResult result = MsgBoxResult.None;
+			var msg = ServiceContainer.Instance.GetService<IMessageBoxService>();
 
       switch (sampleID)
       {
         case "Sample 1":
-          result = Msg.Show("This options displays a message box with only message." +
+          result = msg.Show("This options displays a message box with only message." +
                             "\nThis is the message box with minimal options (just an OK button and no caption).");
           break;
 
         case "Sample 2":
-          result = Msg.Show("This options displays a message box with both title and message.\nA default image and OK button are displayed.",
+          result = msg.Show("This options displays a message box with both title and message.\nA default image and OK button are displayed.",
                             "WPF MessageBox");
           break;
 
         case "Sample 3":
-          result = Msg.Show("This options displays a message box with YES, NO, CANCEL option.",
+          result = msg.Show("This options displays a message box with YES, NO, CANCEL option.",
                     "WPF MessageBox",
                     MsgBoxButtons.YesNoCancel, MsgBoxImage.Question);
           break;
@@ -585,7 +591,7 @@
           {
             Exception exp = this.CreateDemoException();
 
-            result = Msg.Show(exp.Message, "Unexpected Error",
+            result = msg.Show(exp.Message, "Unexpected Error",
                       exp.ToString(), MsgBoxButtons.OK, MsgBoxImage.Error, MsgBoxResult.NoDefaultButton,
                       "http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=7799028",
                       "http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=7799028",
@@ -594,20 +600,20 @@
           break;
 
         case "Sample 5":
-          result = Msg.Show("This options displays a message box with YES, NO buttons.",
+          result = msg.Show("This options displays a message box with YES, NO buttons.",
                     "WPF MessageBox",
                     MsgBoxButtons.YesNo, MsgBoxImage.Question);
 
           break;
 
         case "Sample 6":
-          result = Msg.Show("This options displays a message box with Yes, No (No as default) options.",
+          result = msg.Show("This options displays a message box with Yes, No (No as default) options.",
                    "WPF MessageBox",
                    MsgBoxButtons.YesNo, MsgBoxImage.Question, MsgBoxResult.No);
           break;
 
         case "Sample 7":
-          result = Msg.Show("Are you sure? Click the hyperlink to review the get more details.",
+          result = msg.Show("Are you sure? Click the hyperlink to review the get more details.",
                     "WPF MessageBox with Hyperlink",
                     MsgBoxButtons.YesNo, MsgBoxImage.Question, MsgBoxResult.Yes,
                     "http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=7799028",
@@ -615,7 +621,7 @@
           break;
 
         case "Sample 8":
-          result = Msg.Show("Are you sure? Click the hyperlink to review the get more details.",
+          result = msg.Show("Are you sure? Click the hyperlink to review the get more details.",
                     "WPF MessageBox with Custom Hyperlink Navigation",
                     MsgBoxButtons.YesNo, MsgBoxImage.Question, MsgBoxResult.Yes,
                     "http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=7799028",
@@ -623,21 +629,21 @@
           break;
 
         case "Sample 9":
-          result = Msg.Show("WPF MessageBox without Copy Button (OK and Cancel [default])",
+          result = msg.Show("WPF MessageBox without Copy Button (OK and Cancel [default])",
                     "Are you sure this right?",
                     MsgBoxButtons.OKCancel, MsgBoxImage.Question, MsgBoxResult.Cancel,
                     null, string.Empty, string.Empty, null, false);
           break;
 
         case "Sample 10":
-          result = Msg.Show("Are you sure? Click the hyperlink to review the get more details.",
+          result = msg.Show("Are you sure? Click the hyperlink to review the get more details.",
                     "WPF MessageBox without Default Button",
                     MsgBoxButtons.YesNo, MsgBoxImage.Question, MsgBoxResult.NoDefaultButton,
                     null, string.Empty, string.Empty, null, false);
           break;
 
         case "Sample 11":
-          result = Msg.Show("...display a messageBox with a close button and TakeNote icon.",
+          result = msg.Show("...display a messageBox with a close button and TakeNote icon.",
                    "WPF MessageBox with a close button",
                    MsgBoxButtons.Close, MsgBoxImage.Warning);
           break;
@@ -646,7 +652,7 @@
           {
             Exception exp = this.CreateDemoException();
 
-            result = Msg.Show(exp, "Unexpected Error",
+            result = msg.Show(exp, "Unexpected Error",
                       MsgBoxButtons.OK, MsgBoxImage.Error, MsgBoxResult.NoDefaultButton,
                       "http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=7799028",
                       "http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=7799028",
@@ -658,7 +664,7 @@
           {
             Exception exp = this.CreateDemoException();
 
-            result = Msg.Show(exp, "Reading file 'x' was not succesful.", "Unexpected Error",
+            result = msg.Show(exp, "Reading file 'x' was not succesful.", "Unexpected Error",
                       MsgBoxButtons.OK, MsgBoxImage.Error, MsgBoxResult.NoDefaultButton,
                       "http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=7799028",
                       "http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=7799028",
@@ -670,7 +676,7 @@
           {
             Exception exp = this.CreateDemoException();
 
-            result = Msg.Show(sampleWindow, "...display a messageBox with an explicit reference to the owning window.",
+            result = msg.Show(sampleWindow, "...display a messageBox with an explicit reference to the owning window.",
                              "MessageBox with a owner reference",
                              MsgBoxButtons.OK, MsgBoxImage.Default_OffLight);
           }
@@ -678,7 +684,7 @@
 
         case "Sample 15":
           {
-            result = Msg.Show("...display a messageBox with a default image.",
+            result = msg.Show("...display a messageBox with a default image.",
                      "MessageBox with default image",
                      MsgBoxButtons.YesNoCancel, MsgBoxResult.No,
                      "http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=7799028",
@@ -692,7 +698,7 @@
         // Esc, F4, or Window Close (x) button.
         case "Sample 16":
           {
-            result = Msg.Show("...Display a message box that will not close via Esc, F4, or Window Close (x) button.",
+            result = msg.Show("...Display a message box that will not close via Esc, F4, or Window Close (x) button.",
                      "MessageBox with default image",
                      MsgBoxButtons.YesNoCancel,
                      MsgBoxResult.None, false,
@@ -708,7 +714,7 @@
         //    via Esc, F4, or Window Close (x) button leaving with a No result.
         case "Sample 17":
           {
-            result = Msg.Show("...Display a message box that will close via Esc, F4, or Window Close (x) butto resulting in a No Answer",
+            result = msg.Show("...Display a message box that will close via Esc, F4, or Window Close (x) butto resulting in a No Answer",
                      "MessageBox with default image",
                      MsgBoxButtons.YesNoCancel,
                      MsgBoxResult.No, true,

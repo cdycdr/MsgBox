@@ -9,6 +9,9 @@ See http://www.msgbox.codeplex.com for more details.
 
 Change History:
 
+- Extracted service locator into separate ServiceLocator project and re-designed interface
+  (small breaking change that should be easy to repair see difference in demo programs)
+
 - Extended Notification project with new controls (see class files and Wiki documentation for details):
   UserNotification.View.SimpleNotificationWindow
   UserNotification.View.NotifyableContentControl

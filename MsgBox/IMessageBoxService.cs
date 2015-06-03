@@ -3,7 +3,7 @@
   using System;
   using System.Windows;
 
-  internal interface IMsgBoxService
+  public interface IMessageBoxService
   {
     #region properties
     /// <summary>

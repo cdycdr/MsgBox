@@ -1,4 +1,4 @@
-﻿namespace MsgBox.Internal
+﻿namespace MsgBox
 {
   using System;
   using System.Windows;
@@ -9,7 +9,7 @@
   /// 
   /// Source: http://www.codeproject.com/Articles/70223/Using-a-Service-Locator-to-Work-with-MessageBoxes
   /// </summary>
-  internal class MessageBoxService : IMsgBoxService
+  public sealed class MessageBoxService : IMessageBoxService
   {
     #region fields
     private MsgBoxStyle mStyle;
@@ -46,7 +46,7 @@
 
     #region methods
     #region IMsgBoxService methods
-    MsgBoxResult IMsgBoxService.Show(string messageBoxText,
+    MsgBoxResult IMessageBoxService.Show(string messageBoxText,
                                      MsgBoxResult btnDefault,
                                      object helpLink,
                                      string helpLinkTitle, string helpLinkLabel,
@@ -71,7 +71,7 @@
       }
     }
 
-    MsgBoxResult IMsgBoxService.Show(string messageBoxText,
+    MsgBoxResult IMessageBoxService.Show(string messageBoxText,
                                      string caption,
                                      MsgBoxResult btnDefault,
                                      object helpLink,
@@ -97,7 +97,7 @@
       }
     }
 
-    MsgBoxResult IMsgBoxService.Show(string messageBoxText,
+    MsgBoxResult IMessageBoxService.Show(string messageBoxText,
                                      string caption,
                                      MsgBoxButtons buttonOption,
                                      MsgBoxResult btnDefault,
@@ -124,7 +124,7 @@
       }
     }
 
-    MsgBoxResult IMsgBoxService.Show(string messageBoxText,
+    MsgBoxResult IMessageBoxService.Show(string messageBoxText,
                                      string caption,
                                      MsgBoxButtons buttonOption,
                                      MsgBoxImage image,
@@ -167,7 +167,7 @@
     /// <param name="navigateHelplinkMethod"></param>
     /// <param name="showCopyMessage"></param>
     /// <returns></returns>
-    MsgBoxResult IMsgBoxService.Show(string messageBoxText,
+    MsgBoxResult IMessageBoxService.Show(string messageBoxText,
                                      string caption,
                                      string details,
                                      MsgBoxButtons buttonOption,
@@ -196,7 +196,7 @@
       }
     }
 
-    MsgBoxResult IMsgBoxService.Show(Exception exp, string caption,
+    MsgBoxResult IMessageBoxService.Show(Exception exp, string caption,
                                      MsgBoxButtons buttonOption, MsgBoxImage image,
                                      MsgBoxResult btnDefault,
                                      object helpLink,
@@ -223,7 +223,7 @@
       }
     }
 
-    MsgBoxResult IMsgBoxService.Show(Exception exp, string messageBoxText, string caption,
+    MsgBoxResult IMessageBoxService.Show(Exception exp, string messageBoxText, string caption,
                                      MsgBoxButtons buttonOption, MsgBoxImage image,
                                      MsgBoxResult btnDefault,
                                      object helpLink,
@@ -265,7 +265,7 @@
     /// <param name="navigateHelplinkMethod"></param>
     /// <param name="showCopyMessage"></param>
     /// <returns></returns>
-    MsgBoxResult IMsgBoxService.Show(Window owner,
+    MsgBoxResult IMessageBoxService.Show(Window owner,
                                      string messageBoxText, string caption, 
                                      MsgBoxButtons buttonOption,
                                      MsgBoxImage image,
@@ -294,7 +294,7 @@
       }
     }
 
-    MsgBoxResult IMsgBoxService.Show(Window owner,
+    MsgBoxResult IMessageBoxService.Show(Window owner,
                                      string messageBoxText, string caption,
                                      MsgBoxResult defaultCloseResult,
                                      bool dialogCanCloseViaChrome,
@@ -326,7 +326,7 @@
       }
     }
 
-    MsgBoxResult IMsgBoxService.Show(string messageBoxText,
+    MsgBoxResult IMessageBoxService.Show(string messageBoxText,
                                      MsgBoxResult defaultCloseResult,
                                      bool dialogCanCloseViaChrome,
                                      MsgBoxResult btnDefault,
@@ -355,7 +355,7 @@
       }
     }
 
-    MsgBoxResult IMsgBoxService.Show(string messageBoxText, string caption,
+    MsgBoxResult IMessageBoxService.Show(string messageBoxText, string caption,
                                      MsgBoxResult defaultCloseResult,
                                      bool dialogCanCloseViaChrome,
                                      MsgBoxResult btnDefault,
@@ -384,7 +384,7 @@
       }
     }
 
-    MsgBoxResult IMsgBoxService.Show(string messageBoxText, string caption,
+    MsgBoxResult IMessageBoxService.Show(string messageBoxText, string caption,
                                       MsgBoxButtons buttonOption,
                                       MsgBoxResult defaultCloseResult,
                                       bool dialogCanCloseViaChrome,
@@ -414,7 +414,7 @@
       }
     }
 
-    MsgBoxResult IMsgBoxService.Show(string messageBoxText, string caption,
+    MsgBoxResult IMessageBoxService.Show(string messageBoxText, string caption,
                                       MsgBoxButtons buttonOption, MsgBoxImage image,
                                       MsgBoxResult defaultCloseResult,
                                       bool dialogCanCloseViaChrome,
@@ -444,7 +444,7 @@
       }
     }
 
-    MsgBoxResult IMsgBoxService.Show(string messageBoxText, string caption,
+    MsgBoxResult IMessageBoxService.Show(string messageBoxText, string caption,
                                       string details,
                                       MsgBoxButtons buttonOption, MsgBoxImage image,
                                       MsgBoxResult defaultCloseResult,

@@ -66,8 +66,10 @@
     {
       try
       {
-        if (this.PropertyChanged != null)
-          this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+          var handler = this.PropertyChanged;
+
+        if (handler != null)
+            handler(this, new PropertyChangedEventArgs(propertyName));
       }
       catch
       {

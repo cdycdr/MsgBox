@@ -61,13 +61,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xaml" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Xaml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -75,9 +70,8 @@
     <Compile Include="Converter\ImageEnumToVisibilityConverter.cs" />
     <Compile Include="Converter\ImageEnumToImageConverter.cs" />
     <Compile Include="Enums\MsgBoxStyle.cs" />
-    <Compile Include="IMessage.cs" />
     <Compile Include="IMessageBoxService.cs" />
-    <Compile Include="Internal\MessageBoxService.cs" />
+    <Compile Include="MessageBoxService.cs" />
     <Compile Include="Behaviour\DialogCloser.cs" />
     <Compile Include="Converter\EnumMatchToBooleanConverter.cs" />
     <Compile Include="Behaviour\SetKeyboardFocusWhenIsDefault.cs" />
@@ -116,15 +110,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Message.cs" />
-    <Compile Include="Msg.cs" />
     <Compile Include="Local\Strings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
-    <Compile Include="ServiceContainer.cs" />
-    <Compile Include="ServiceInjector.cs" />
     <Compile Include="Internal\ViewModel\Base\BaseViewModel.cs" />
     <Compile Include="IconHelper.cs" />
     <Compile Include="Internal\ViewModel\MessageBoxViewModel.cs" />
