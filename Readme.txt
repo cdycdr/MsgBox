@@ -9,6 +9,12 @@ See http://www.msgbox.codeplex.com for more details.
 
 Change History:
 
+- 2015-07-29
+  There are breaking changes in the way a Window Chrome is themed in WPF between .Net Version 4.0
+  and .Net Version 4.5. Namely:
+  - The System.Windows.Shell.DLL is integrated into the PresentationFramework assembly
+    (see code changes in this branch for more details).
+
 - Extracted service locator into separate ServiceLocator project and re-designed interface
   (small breaking change that should be easy to repair see difference in demo programs)
 
