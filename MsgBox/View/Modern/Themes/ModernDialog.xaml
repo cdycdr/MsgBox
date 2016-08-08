@@ -2,8 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:MsgBox.View.Modern"
 
-                    xmlns:syscmd="clr-namespace:Microsoft.Windows.Shell;assembly=Microsoft.Windows.Shell"
-                    xmlns:shell="http://schemas.microsoft.com/winfx/2006/xaml/presentation/shell"
+                    xmlns:syscmd="clr-namespace:System.Windows.Shell;assembly=PresentationFramework"
+                    xmlns:shell="clr-namespace:System.Windows;assembly=PresentationFramework"
+                    xmlns:shellWC="clr-namespace:System.Windows.Shell;assembly=PresentationFramework"
                     
                     xmlns:local="clr-namespace:MsgBox.View.Modern"
                     xmlns:xc="clr-namespace:MsgBox.View.Modern.Behavior"
@@ -53,7 +54,7 @@
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="controls:ModernDialog">
-          <Border Background="{DynamicResource WindowBackground}" Margin="{Binding Source={x:Static shell:SystemParameters2.Current}, Path=WindowNonClientFrameThickness}">
+					<Border Background="{DynamicResource WindowBackground}" Margin="{Binding Source={x:Static shell:SystemParameters.WindowResizeBorderThickness}}">
             <AdornerDecorator>
               <Grid>
                 <Border BorderBrush="{DynamicResource WindowBorder}" BorderThickness="1">
@@ -153,9 +154,9 @@
     </Setter>
 
     <!-- Defines outer window border frame and shadow ??? -->
-    <Setter Property="shell:WindowChrome.WindowChrome">
+    <Setter Property="shellWC:WindowChrome.WindowChrome">
       <Setter.Value>
-        <shell:WindowChrome CornerRadius="0" GlassFrameThickness="1" UseAeroCaptionButtons="False" />
+        <shellWC:WindowChrome CornerRadius="0" GlassFrameThickness="1" UseAeroCaptionButtons="False" />
       </Setter.Value>
     </Setter>
   </Style>

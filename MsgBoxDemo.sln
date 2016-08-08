@@ -1,15 +1,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2013 for Windows Desktop
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsgBox", "MsgBox\MsgBox.csproj", "{2F8EF004-1E7A-429D-863B-5A062A90705A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsgBoxDemo", "MsgBoxDemo\MsgBoxDemo.csproj", "{4099AE7E-B324-4C33-A518-79602C93D271}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Binaries", "Binaries", "{E3D8DFD4-4299-4FE0-9BE8-0CB41F189489}"
-	ProjectSection(SolutionItems) = preProject
-		Binaries\Microsoft.Windows.Shell.dll = Binaries\Microsoft.Windows.Shell.dll
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserNotification", "UserNotification\UserNotification.csproj", "{AF255663-9320-4EBA-92CF-D0D6AAC951C0}"
 EndProject
